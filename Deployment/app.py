@@ -3,7 +3,8 @@ import pandas as pd
 import joblib
 
 # Load trained model
-model = joblib.load("best_crop_prediction_model.pkl")
+from pathlib import Path
+model = joblib.load(Path(__file__).parent / "best_crop_prediction_model.pkl")
 
 # Page configuration
 st.set_page_config(
@@ -33,5 +34,20 @@ if st.button("Recommend Crop"):
     ])
 
     prediction = model.predict(input_data)
-
+    
     st.success(f"Recommended Crop: {prediction[0]}")
+    
+    probabilities = model.predict_proba(input_data)[0]
+    
+    probability_data = pd.DataFrame({
+        "Crop": model.classes_,
+        "Probability": probabilities
+    })
+    
+    confidence = probabilities.max() * 100
+    
+    st.metric("Confidence", f"{confidence:.2f}%")
+    
+    st.bar_chart(
+        probability_data.set_index("Crop")
+    )
