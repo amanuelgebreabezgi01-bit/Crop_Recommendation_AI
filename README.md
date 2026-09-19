@@ -4,6 +4,27 @@ A machine learning project that recommends the most suitable crop based on soil 
 
 The system uses **Nitrogen (N), Phosphorus (P), Potassium (K), temperature, humidity, pH, and rainfall** as input features and uses a trained machine learning model to predict the recommended crop.
 
+## 🚀 Try the Live Prediction App
+
+👉 **[Open Crop Recommendation AI](https://croprecommendationai-ccubrnhhqg3gvwstnpz8ec.streamlit.app/)**
+
+Click the button above to open the live Streamlit application and test the crop recommendation model.
+
+### How it works
+
+1. Open the Streamlit app.
+2. Enter:
+
+   * Nitrogen (N)
+   * Phosphorus (P)
+   * Potassium (K)
+   * Temperature
+   * Humidity
+   * pH
+   * Rainfall
+3. Click **Recommend Crop**.
+4. The application displays the predicted crop.
+
 ---
 
 ## 📌 Project Overview
